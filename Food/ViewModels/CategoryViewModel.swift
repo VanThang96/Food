@@ -7,14 +7,17 @@
 //
 
 import Foundation
-import Firebase
 
 class CategoryViewModel {
     var categories = [Category]()
-    func fetchAllCategoty(onSuccess : @escaping () -> () , onError : @escaping (String?) -> ()){
-        DatabaseServices.shareInstance.fetchAllCategoty(onSuccess: { (categories) in
-            self.categories = categories!
+    var menuIds = [String]()
+    func fetchCategories(onSuccess : @escaping () -> () , onError : @escaping (String?) -> ()){
+        DatabaseServices.shareInstance.fetchCategories(onCompletion: { [weak self](menuId) in
+            self?.menuIds = menuId!
             onSuccess()
+            }, onSuccess: { [weak self](categories) in
+                self?.categories = categories!
+                onSuccess()
         }) { (error) in
             onError(error)
         }
@@ -28,5 +31,10 @@ class CategoryViewModel {
     func getCount() -> Int{
         return categories.count
     }
-    
+    func getMenuId(atIndex : Int) -> String {
+        return menuIds[atIndex]
+    }
+    func getFoodTitle(atIndex : Int) -> String {
+        return categories[atIndex].name
+    }
 }

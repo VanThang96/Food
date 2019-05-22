@@ -19,6 +19,11 @@
 		236F83BC229184BD00225696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 236F83BA229184BD00225696 /* LaunchScreen.storyboard */; };
 		236F83C62291ABFE00225696 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 236F83C52291ABFE00225696 /* GoogleService-Info.plist */; };
 		236F83C82291B9C500225696 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F83C72291B9C500225696 /* Extensions.swift */; };
+		2396BA24229533620056A46C /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396BA23229533620056A46C /* Food.swift */; };
+		2396BA26229534090056A46C /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396BA25229534090056A46C /* FoodViewModel.swift */; };
+		2396BA2822953BED0056A46C /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396BA2722953BED0056A46C /* FoodViewController.swift */; };
+		2396BA2B229553C30056A46C /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396BA29229553C30056A46C /* FoodCollectionViewCell.swift */; };
+		2396BA2C229553C30056A46C /* FoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2396BA2A229553C30056A46C /* FoodCollectionViewCell.xib */; };
 		23CF8E552292996700479AEC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CF8E542292996700479AEC /* Colors.xcassets */; };
 		23DB154E22945679008F47E4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB154D22945679008F47E4 /* HomeViewController.swift */; };
 		23DB15522294572B008F47E4 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB15502294572B008F47E4 /* CategoryCollectionViewCell.swift */; };
@@ -45,6 +50,11 @@
 		236F83BD229184BD00225696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		236F83C52291ABFE00225696 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		236F83C72291B9C500225696 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2396BA23229533620056A46C /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		2396BA25229534090056A46C /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
+		2396BA2722953BED0056A46C /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		2396BA29229553C30056A46C /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		2396BA2A229553C30056A46C /* FoodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		23CF8E542292996700479AEC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		23DB154D22945679008F47E4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		23DB15502294572B008F47E4 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -95,6 +105,7 @@
 				233C9449229303BE005F4BA7 /* SignInViewController.swift */,
 				233C944B229303D5005F4BA7 /* SignUpViewController.swift */,
 				23DB154D22945679008F47E4 /* HomeViewController.swift */,
+				2396BA2722953BED0056A46C /* FoodViewController.swift */,
 			);
 			path = Viewcontrollers;
 			sourceTree = "<group>";
@@ -150,6 +161,8 @@
 			children = (
 				23DB15502294572B008F47E4 /* CategoryCollectionViewCell.swift */,
 				23DB15512294572B008F47E4 /* CategoryCollectionViewCell.xib */,
+				2396BA29229553C30056A46C /* FoodCollectionViewCell.swift */,
+				2396BA2A229553C30056A46C /* FoodCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -167,6 +180,7 @@
 			children = (
 				23EAE67A2293B69D00DFC78B /* UserViewModel.swift */,
 				23DB155622945A7B008F47E4 /* CategoryViewModel.swift */,
+				2396BA25229534090056A46C /* FoodViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -176,6 +190,7 @@
 			children = (
 				23EAE67D2293B9BE00DFC78B /* UserModel.swift */,
 				23DB1554229459E3008F47E4 /* Category.swift */,
+				2396BA23229533620056A46C /* Food.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +274,7 @@
 			files = (
 				23CF8E552292996700479AEC /* Colors.xcassets in Resources */,
 				23DB15532294572B008F47E4 /* CategoryCollectionViewCell.xib in Resources */,
+				2396BA2C229553C30056A46C /* FoodCollectionViewCell.xib in Resources */,
 				236F83BC229184BD00225696 /* LaunchScreen.storyboard in Resources */,
 				236F83C62291ABFE00225696 /* GoogleService-Info.plist in Resources */,
 				2314B0CA2293FC86007BE3A2 /* Home.storyboard in Resources */,
@@ -335,12 +351,16 @@
 			files = (
 				233C944A229303BE005F4BA7 /* SignInViewController.swift in Sources */,
 				23EAE67E2293B9BE00DFC78B /* UserModel.swift in Sources */,
+				2396BA2B229553C30056A46C /* FoodCollectionViewCell.swift in Sources */,
 				23EAE67B2293B69D00DFC78B /* UserViewModel.swift in Sources */,
 				236F83B4229184BC00225696 /* ViewController.swift in Sources */,
 				23DB155722945A7B008F47E4 /* CategoryViewModel.swift in Sources */,
+				2396BA26229534090056A46C /* FoodViewModel.swift in Sources */,
 				236F83C82291B9C500225696 /* Extensions.swift in Sources */,
 				23DB154E22945679008F47E4 /* HomeViewController.swift in Sources */,
+				2396BA24229533620056A46C /* Food.swift in Sources */,
 				23DB15522294572B008F47E4 /* CategoryCollectionViewCell.swift in Sources */,
+				2396BA2822953BED0056A46C /* FoodViewController.swift in Sources */,
 				2330E305229506A7002D0279 /* DatabaseServices.swift in Sources */,
 				236F83B2229184BC00225696 /* AppDelegate.swift in Sources */,
 				2314B0C72293F96B007BE3A2 /* Ref.swift in Sources */,

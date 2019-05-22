@@ -9,10 +9,13 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    //MARK:- IBOulet
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-    
+
+    //MARK:- Variable
     let categoryCellId = "cellId"
     var categoryViewModel :  CategoryViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -21,13 +24,14 @@ class HomeViewController: UIViewController {
     }
     fileprivate func setupUI(){
         categoryViewModel = CategoryViewModel()
-        categoryViewModel.fetchAllCategoty(onSuccess: {[weak self] in
+        categoryViewModel.fetchCategories(onSuccess: {[weak self] in
             self?.categoryCollectionView.reloadData()
         }) { (error) in
             print(error!)
         }
         categoryCollectionView.register(UINib(nibName: String(describing: CategoryCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: categoryCellId)
     }
+   
 }
 extension HomeViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,6 +48,13 @@ extension HomeViewController : UICollectionViewDataSource {
 extension HomeViewController :UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 200)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let foodVC = storyboard.instantiateViewController(withIdentifier: "FoodViewController") as! FoodViewController
+        foodVC.menuId = categoryViewModel.getMenuId(atIndex: indexPath.item)
+        foodVC.navTitle = categoryViewModel.getFoodTitle(atIndex: indexPath.item)
+        self.navigationController?.pushViewController(foodVC, animated: true)
     }
 }
 
