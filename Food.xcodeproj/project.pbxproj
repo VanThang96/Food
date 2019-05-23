@@ -19,6 +19,10 @@
 		236F83BC229184BD00225696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 236F83BA229184BD00225696 /* LaunchScreen.storyboard */; };
 		236F83C62291ABFE00225696 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 236F83C52291ABFE00225696 /* GoogleService-Info.plist */; };
 		236F83C82291B9C500225696 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F83C72291B9C500225696 /* Extensions.swift */; };
+		23728F802296A07E00050671 /* FoodDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23728F7E2296A07E00050671 /* FoodDetailHeaderView.swift */; };
+		23728F812296A07E00050671 /* FoodDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23728F7F2296A07E00050671 /* FoodDetailHeaderView.xib */; };
+		23728F832296A22800050671 /* StrechyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23728F822296A22800050671 /* StrechyHeaderLayout.swift */; };
+		23728F852296AF3800050671 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23728F842296AF3800050671 /* FoodDetailViewController.swift */; };
 		2396BA24229533620056A46C /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396BA23229533620056A46C /* Food.swift */; };
 		2396BA26229534090056A46C /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396BA25229534090056A46C /* FoodViewModel.swift */; };
 		2396BA2822953BED0056A46C /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396BA2722953BED0056A46C /* FoodViewController.swift */; };
@@ -50,6 +54,10 @@
 		236F83BD229184BD00225696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		236F83C52291ABFE00225696 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		236F83C72291B9C500225696 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		23728F7E2296A07E00050671 /* FoodDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailHeaderView.swift; sourceTree = "<group>"; };
+		23728F7F2296A07E00050671 /* FoodDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodDetailHeaderView.xib; sourceTree = "<group>"; };
+		23728F822296A22800050671 /* StrechyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrechyHeaderLayout.swift; sourceTree = "<group>"; };
+		23728F842296AF3800050671 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		2396BA23229533620056A46C /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		2396BA25229534090056A46C /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
 		2396BA2722953BED0056A46C /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
@@ -101,11 +109,12 @@
 		233C944822930387005F4BA7 /* Viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
-				236F83B3229184BC00225696 /* ViewController.swift */,
-				233C9449229303BE005F4BA7 /* SignInViewController.swift */,
-				233C944B229303D5005F4BA7 /* SignUpViewController.swift */,
-				23DB154D22945679008F47E4 /* HomeViewController.swift */,
-				2396BA2722953BED0056A46C /* FoodViewController.swift */,
+				23DF91C12297077E00CA22C2 /* FoodDetailViewController */,
+				23DF91BF229706DF00CA22C2 /* FoodViewController */,
+				23DF91BD229706A500CA22C2 /* HomeViewController */,
+				23DF91BC2297068800CA22C2 /* SignUpViewController */,
+				23DF91BB2297066700CA22C2 /* SignInViewController */,
+				23DF91BA229705FB00CA22C2 /* SignInAndSignUpViewController */,
 			);
 			path = Viewcontrollers;
 			sourceTree = "<group>";
@@ -131,7 +140,7 @@
 		236F83B0229184BC00225696 /* Food */ = {
 			isa = PBXGroup;
 			children = (
-				23DB154F229456F9008F47E4 /* Cells */,
+				23DF91B9229705CE00CA22C2 /* APPConfiguration */,
 				2314B0C82293FC5F007BE3A2 /* Storyboards */,
 				2314B0C52293F955007BE3A2 /* Services */,
 				23EAE67C2293B9A500DFC78B /* Models */,
@@ -139,11 +148,6 @@
 				23EAE6782293A2C100DFC78B /* Sources */,
 				233C944822930387005F4BA7 /* Viewcontrollers */,
 				23CF8E582292B90700479AEC /* Extensions */,
-				236F83B1229184BC00225696 /* AppDelegate.swift */,
-				236F83B8229184BD00225696 /* Assets.xcassets */,
-				236F83BA229184BD00225696 /* LaunchScreen.storyboard */,
-				236F83BD229184BD00225696 /* Info.plist */,
-				236F83C52291ABFE00225696 /* GoogleService-Info.plist */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -156,15 +160,95 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		23DB154F229456F9008F47E4 /* Cells */ = {
+		23DF91B9229705CE00CA22C2 /* APPConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				23DB15502294572B008F47E4 /* CategoryCollectionViewCell.swift */,
+				236F83B1229184BC00225696 /* AppDelegate.swift */,
+				236F83B8229184BD00225696 /* Assets.xcassets */,
+				236F83BA229184BD00225696 /* LaunchScreen.storyboard */,
+				236F83BD229184BD00225696 /* Info.plist */,
+				236F83C52291ABFE00225696 /* GoogleService-Info.plist */,
+			);
+			path = APPConfiguration;
+			sourceTree = "<group>";
+		};
+		23DF91BA229705FB00CA22C2 /* SignInAndSignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				236F83B3229184BC00225696 /* ViewController.swift */,
+			);
+			path = SignInAndSignUpViewController;
+			sourceTree = "<group>";
+		};
+		23DF91BB2297066700CA22C2 /* SignInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				233C9449229303BE005F4BA7 /* SignInViewController.swift */,
+			);
+			path = SignInViewController;
+			sourceTree = "<group>";
+		};
+		23DF91BC2297068800CA22C2 /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				233C944B229303D5005F4BA7 /* SignUpViewController.swift */,
+			);
+			path = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		23DF91BD229706A500CA22C2 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				23DF91BE229706BC00CA22C2 /* Cell */,
+				23DB154D22945679008F47E4 /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		23DF91BE229706BC00CA22C2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				23DB15512294572B008F47E4 /* CategoryCollectionViewCell.xib */,
+				23DB15502294572B008F47E4 /* CategoryCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		23DF91BF229706DF00CA22C2 /* FoodViewController */ = {
+			isa = PBXGroup;
+			children = (
+				23DF91C0229706F500CA22C2 /* Cell */,
+				2396BA2722953BED0056A46C /* FoodViewController.swift */,
+			);
+			path = FoodViewController;
+			sourceTree = "<group>";
+		};
+		23DF91C0229706F500CA22C2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				2396BA29229553C30056A46C /* FoodCollectionViewCell.swift */,
 				2396BA2A229553C30056A46C /* FoodCollectionViewCell.xib */,
 			);
-			path = Cells;
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		23DF91C12297077E00CA22C2 /* FoodDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				23DF91C22297079500CA22C2 /* Cell */,
+				23728F842296AF3800050671 /* FoodDetailViewController.swift */,
+			);
+			path = FoodDetailViewController;
+			sourceTree = "<group>";
+		};
+		23DF91C22297079500CA22C2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				23728F822296A22800050671 /* StrechyHeaderLayout.swift */,
+				23728F7E2296A07E00050671 /* FoodDetailHeaderView.swift */,
+				23728F7F2296A07E00050671 /* FoodDetailHeaderView.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		23EAE6782293A2C100DFC78B /* Sources */ = {
@@ -278,6 +362,7 @@
 				236F83BC229184BD00225696 /* LaunchScreen.storyboard in Resources */,
 				236F83C62291ABFE00225696 /* GoogleService-Info.plist in Resources */,
 				2314B0CA2293FC86007BE3A2 /* Home.storyboard in Resources */,
+				23728F812296A07E00050671 /* FoodDetailHeaderView.xib in Resources */,
 				236F83B9229184BD00225696 /* Assets.xcassets in Resources */,
 				236F83B7229184BC00225696 /* Main.storyboard in Resources */,
 			);
@@ -352,6 +437,7 @@
 				233C944A229303BE005F4BA7 /* SignInViewController.swift in Sources */,
 				23EAE67E2293B9BE00DFC78B /* UserModel.swift in Sources */,
 				2396BA2B229553C30056A46C /* FoodCollectionViewCell.swift in Sources */,
+				23728F852296AF3800050671 /* FoodDetailViewController.swift in Sources */,
 				23EAE67B2293B69D00DFC78B /* UserViewModel.swift in Sources */,
 				236F83B4229184BC00225696 /* ViewController.swift in Sources */,
 				23DB155722945A7B008F47E4 /* CategoryViewModel.swift in Sources */,
@@ -363,7 +449,9 @@
 				2396BA2822953BED0056A46C /* FoodViewController.swift in Sources */,
 				2330E305229506A7002D0279 /* DatabaseServices.swift in Sources */,
 				236F83B2229184BC00225696 /* AppDelegate.swift in Sources */,
+				23728F802296A07E00050671 /* FoodDetailHeaderView.swift in Sources */,
 				2314B0C72293F96B007BE3A2 /* Ref.swift in Sources */,
+				23728F832296A22800050671 /* StrechyHeaderLayout.swift in Sources */,
 				233C944C229303D5005F4BA7 /* SignUpViewController.swift in Sources */,
 				23DB1555229459E3008F47E4 /* Category.swift in Sources */,
 			);
@@ -514,7 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BNSLJ8LFRL;
-				INFOPLIST_FILE = Food/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Food/APPConfiguration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,7 +621,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BNSLJ8LFRL;
-				INFOPLIST_FILE = Food/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Food/APPConfiguration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

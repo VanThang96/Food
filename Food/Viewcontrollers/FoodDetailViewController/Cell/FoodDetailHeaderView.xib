@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="FoodDetailHeaderView" customModule="Food" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="204"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_category" translatesAutoresizingMaskIntoConstraints="NO" id="USH-6g-JhQ">
+                    <rect key="frame" x="0.0" y="0.0" width="362" height="204"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nux-JM-0Lq">
+                    <rect key="frame" x="160" y="167" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="USH-6g-JhQ" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="BKy-xn-48o"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="Nux-JM-0Lq" secondAttribute="bottom" constant="16" id="C1N-69-gJg"/>
+                <constraint firstItem="USH-6g-JhQ" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Kwa-oV-Y1K"/>
+                <constraint firstItem="USH-6g-JhQ" firstAttribute="bottom" secondItem="U6b-Vx-4bR" secondAttribute="bottom" id="NFa-7A-QuL"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="USH-6g-JhQ" secondAttribute="trailing" id="NmT-t0-473"/>
+                <constraint firstItem="Nux-JM-0Lq" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="sd0-k6-yen"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <connections>
+                <outlet property="imvHeader" destination="USH-6g-JhQ" id="2c3-HC-F8j"/>
+                <outlet property="lbFoodHeader" destination="Nux-JM-0Lq" id="RNE-84-KZP"/>
+            </connections>
+            <point key="canvasLocation" x="-10" y="19"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="icon_category" width="1118" height="588"/>
+    </resources>
+</document>

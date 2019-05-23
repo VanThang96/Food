@@ -101,3 +101,8 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+extension UIApplication {
+        var statusBarView : UIView? {
+            return value(forKey: "statusBar") as? UIView
+        }
+}
