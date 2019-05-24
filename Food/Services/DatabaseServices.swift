@@ -44,7 +44,7 @@ class DatabaseServices {
         }
     }
     func fetchCategories(onCompletion : @escaping ([String]?) -> (), onSuccess : @escaping ([Category]?) -> () , onError : @escaping (String?) -> ()){
-        //fetch data
+        //fetch Menus data
         Ref.sharedInstance.databaseCategories.observeSingleEvent(of: .value, with: {(snapshot) in
             guard let object = snapshot.children.allObjects as? [DataSnapshot] else { return }
             let dict = object.compactMap { $0.value as? [String: Any] }
@@ -66,7 +66,7 @@ class DatabaseServices {
         }
     }
     func fetchFoods(key : String, onSuccess : @escaping ([Food]?) -> () , onError : @escaping (String?) -> ()){
-        //fetch data
+        //fetch Foods data
         Ref.sharedInstance.getFoodsWithMenuId(equal: key).observeSingleEvent(of: .value, with: {(snapshot) in
             guard let object = snapshot.children.allObjects as? [DataSnapshot] else { return }
             let dict = object.compactMap { $0.value as? [String: Any] }

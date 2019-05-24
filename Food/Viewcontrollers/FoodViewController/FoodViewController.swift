@@ -24,8 +24,10 @@ class FoodViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    fileprivate func setupUI(){
+    override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = navTitle
+    }
+    fileprivate func setupUI(){
         foodViewModel = FoodViewModel()
         foodViewModel.fetchFoods(menuId: menuId, onSuccess: { [weak self] in
             self?.foodCollectionView.reloadData()
@@ -34,9 +36,10 @@ class FoodViewController: UIViewController {
         }
         foodCollectionView.register(UINib(nibName: String(describing: FoodCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: foodCellId)
     }
+    
 }
+//MARK:- CollectionViewDataSource
 extension FoodViewController : UICollectionViewDataSource {
-    //MARK:- CollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return foodViewModel.getCount()
     }
@@ -46,10 +49,15 @@ extension FoodViewController : UICollectionViewDataSource {
         cell.food = foodViewModel.getFood(atIndex: indexPath.item)
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let foodDetailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
+        foodDetailVC.food = foodViewModel.getFood(atIndex: indexPath.item)
+        self.navigationController?.pushViewController(foodDetailVC, animated: true)
+    }
 }
+//MARK:- CollectionViewDelegate
 extension FoodViewController : UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    //MARK:- CollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 200)
     }

@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 class ViewController: UIViewController {
+    //MARK:- IBOutlet
     @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var btnSignIn: UIButton!
 
-    
+    //MARK:- Init
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -26,6 +27,8 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         setupUI()
     }
+    
+    //MARK:- Method
     fileprivate func setupUI(){
         btnSignIn.makeCornerAndGradient(startColor: UIColor(named: "#FF8C2B")!, endColor: UIColor(named: "#FF6322")!)
         btnSignUp.makeCornerAndBorderButton(color: UIColor(named: "#FF8C2B")!)

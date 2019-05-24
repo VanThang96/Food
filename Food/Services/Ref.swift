@@ -20,14 +20,15 @@ protocol Reference : class{
     var databaseUser : DatabaseReference { get }
     var databaseCategories : DatabaseReference { get }
     var databaseFoods : DatabaseQuery { get }
-//    var storageProfile : StorageReference { get }
+//   var storageProfile : StorageReference { get }
     func databaseSpecificUser (uid :String) -> DatabaseReference
     func getFoodsWithMenuId(equal Id: String) -> DatabaseQuery
-//    func storageSpecificProfile (uid : String) -> StorageReference
+//   func storageSpecificProfile (uid : String) -> StorageReference
 }
 class Ref : Reference {
     static let sharedInstance = Ref()
     
+    ///Database reference
     let databaseRoot = Database.database().reference()
     var databaseUser: DatabaseReference {
         return databaseRoot.child(REF_USER)
@@ -44,7 +45,7 @@ class Ref : Reference {
     func getFoodsWithMenuId(equal Id: String) -> DatabaseQuery {
         return databaseFoods.queryEqual(toValue:Id)
     }
-    //storage Reference
+    ///Storage reference
     /*let storageRoot = Storage.storage().reference(forURL: URL_STORAGE)
     var storageProfile: StorageReference {
         return storageRoot.child(STORAGE_PROFILE)

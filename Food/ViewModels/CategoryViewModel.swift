@@ -11,6 +11,7 @@ import Foundation
 class CategoryViewModel {
     var categories = [Category]()
     var menuIds = [String]()
+    
     func fetchCategories(onSuccess : @escaping () -> () , onError : @escaping (String?) -> ()){
         DatabaseServices.shareInstance.fetchCategories(onCompletion: { [weak self](menuId) in
             self?.menuIds = menuId!

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FGK-qI-p07">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R6J-8O-ami">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -162,6 +162,7 @@
                     </view>
                     <connections>
                         <outlet property="foodCollectionView" destination="ZEq-0i-KW9" id="AoX-kr-1pg"/>
+                        <segue destination="Bzg-XM-I24" kind="show" id="rWD-1E-RTt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmQ-Eg-Mxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,11 +172,12 @@
         <!--Food Detail View Controller-->
         <scene sceneID="fVv-Hk-xXO">
             <objects>
-                <collectionViewController id="Bzg-XM-I24" customClass="FoodDetailViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="j4I-mh-DcV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                <collectionViewController storyboardIdentifier="FoodDetailViewController" id="Bzg-XM-I24" customClass="FoodDetailViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="j4I-mh-DcV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SaR-zP-ZF2" customClass="StrechyHeaderLayout" customModule="Food" customModuleProvider="target">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -192,7 +194,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P35-SU-Ma3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266.4000000000001" y="1009.35960591133"/>
+            <point key="canvasLocation" x="-95" y="992"/>
         </scene>
         <!--Cart-->
         <scene sceneID="adY-fb-aw5">
@@ -233,24 +235,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpy-k3-F1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2036" y="281"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="eGI-Fp-vy3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FGK-qI-p07" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YAt-xD-867">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Bzg-XM-I24" kind="relationship" relationship="rootViewController" id="yl6-Pr-Ljl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fbH-ou-MLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="324" y="1008.6206896551724"/>
         </scene>
     </scenes>
     <resources>

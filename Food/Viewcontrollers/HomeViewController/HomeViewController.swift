@@ -16,12 +16,15 @@ class HomeViewController: UIViewController {
     let categoryCellId = "cellId"
     var categoryViewModel :  CategoryViewModel!
     
+    //MARK:- Init
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
         // Do any additional setup after loading the view.
     }
+    
+    //MARK:- Method
     fileprivate func setupUI(){
         categoryViewModel = CategoryViewModel()
         categoryViewModel.fetchCategories(onSuccess: {[weak self] in
@@ -33,6 +36,7 @@ class HomeViewController: UIViewController {
     }
    
 }
+//MARK:- CollectionViewDataSource
 extension HomeViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryViewModel.getCount()
@@ -45,6 +49,7 @@ extension HomeViewController : UICollectionViewDataSource {
     }
     
 }
+//MARK:- CollectionViewDelegate
 extension HomeViewController :UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 200)

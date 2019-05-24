@@ -9,14 +9,28 @@
 import UIKit
 
 class FoodDetailHeaderView: UICollectionReusableView {
+    //MARK:- IBOulet
     @IBOutlet weak var imvHeader: UIImageView!
     @IBOutlet weak var lbFoodHeader: UILabel!
     
+    //MARK:- Variable
+    var food : Food?{
+        didSet{
+            DispatchQueue.main.async {[weak self] in
+                self?.imvHeader.imageFromUrl(urlString: (self?.food?.image)!)
+                self?.lbFoodHeader.text = self?.food?.name
+            }
+        }
+    }
+    var animator : UIViewPropertyAnimator!
+    
+    //MARK:- Init
     override func awakeFromNib() {
         super.awakeFromNib()
         setupVisualEffectBlur()
     }
-    var animator : UIViewPropertyAnimator!
+    
+    //MARK:- Method
     fileprivate func setupVisualEffectBlur(){
         animator = UIViewPropertyAnimator(duration: 3.0, curve: .linear, animations: {[weak self] in
             //treat this area as the end state of your animation

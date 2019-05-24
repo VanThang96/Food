@@ -13,6 +13,7 @@ import FirebaseStorage
 
 class UserViewModel {
     var user = UserModel()
+    
     func infor(phone : String?, name : String?, password : String? ){
         self.user.phone     = phone
         self.user.name      = name

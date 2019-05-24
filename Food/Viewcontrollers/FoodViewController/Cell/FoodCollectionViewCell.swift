@@ -9,9 +9,11 @@
 import UIKit
 
 class FoodCollectionViewCell: UICollectionViewCell {
+    //MARK:- IBOulet
     @IBOutlet weak var imvFood: UIImageView!
     @IBOutlet weak var lbFood: UILabel!
     
+    //MARK:- Variable
     var food  : Food? {
         didSet{
             DispatchQueue.main.async {[weak self] in
@@ -20,6 +22,7 @@ class FoodCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    //MARK:- Init
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

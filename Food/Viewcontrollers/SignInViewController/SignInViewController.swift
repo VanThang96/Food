@@ -10,12 +10,15 @@ import UIKit
 import SVProgressHUD
 
 class SignInViewController: UIViewController {
+    //MARK:- IBOutlet
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnSignIn: UIButton!
     
+    //MARK:- Variable
     var userViewModel : UserViewModel!
- 
+    
+    //MARK:- Init
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -24,6 +27,11 @@ class SignInViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         setupUI()
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    //MARK:- IBAction
     @IBAction func dismissViewController(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -51,6 +59,8 @@ class SignInViewController: UIViewController {
             }
         }
     }
+    
+    //MARK:- Method
     @objc func handleShowOrHiddenPassword(){
         txtPassword.isSecureTextEntry = !txtPassword.isSecureTextEntry
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleShowOrHiddenPassword))
@@ -58,9 +68,6 @@ class SignInViewController: UIViewController {
     }
     fileprivate func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
-    }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     fileprivate func setupUI(){
         txtPhoneNumber.addLeftView(image: "icon_phone", tintColor: .lightGray)

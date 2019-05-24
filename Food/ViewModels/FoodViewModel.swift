@@ -10,6 +10,7 @@ import Foundation
 
 class FoodViewModel {
     var foods = [Food]()
+    
     func fetchFoods(menuId : String,onSuccess : @escaping () -> () , onError : @escaping (String?) -> ()){
         DatabaseServices.shareInstance.fetchFoods(key: menuId, onSuccess: { [weak self](foods) in
             self?.foods = foods!

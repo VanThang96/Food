@@ -10,13 +10,16 @@ import UIKit
 import SVProgressHUD
 
 class SignUpViewController: UIViewController {
+    //MARK:- IBOutlet
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var txtFullName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnSignUp: UIButton!
     
+    //MARK:- Variable
     var userViewModel : UserViewModel!
     
+    //MARK:- Init
     override func viewDidLoad() {
         super.viewDidLoad()
         userViewModel = UserViewModel()
@@ -25,6 +28,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         setupUI()
     }
+    
+    //MARK:- IBAction
     @IBAction func dismisssViewController(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -55,6 +60,8 @@ class SignUpViewController: UIViewController {
             }
         }
     }
+    
+    //MARK:- Method
     fileprivate func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
     }

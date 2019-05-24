@@ -102,7 +102,30 @@ extension UIViewController {
     }
 }
 extension UIApplication {
-        var statusBarView : UIView? {
-            return value(forKey: "statusBar") as? UIView
-        }
+    var statusBarView : UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+}
+extension UIView {
+    /**
+    Corner radius and shadow for card view in FooddetailViewController
+     */
+    func cornerRadiusAndShadowForCardView() {
+        layer.cornerRadius = 4
+        layer.shadowOpacity = 0.25
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 10
+    }
+}
+extension String {
+    /**
+    estimated height of label in FoodDetailViewController
+     */
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        
+        return ceil(boundingBox.height)
+    }
 }

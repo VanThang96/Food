@@ -11,9 +11,11 @@ import Alamofire
 import AlamofireImage
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+    //MARK:- IBOutlet
     @IBOutlet weak var imvMenu: UIImageView!
     @IBOutlet weak var lbMenu: UILabel!
     
+    //MARK:- Variable
     var category : Category? {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -22,6 +24,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    //MARK:- Init
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

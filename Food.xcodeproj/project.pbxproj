@@ -29,6 +29,8 @@
 		2396BA2B229553C30056A46C /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396BA29229553C30056A46C /* FoodCollectionViewCell.swift */; };
 		2396BA2C229553C30056A46C /* FoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2396BA2A229553C30056A46C /* FoodCollectionViewCell.xib */; };
 		23CF8E552292996700479AEC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CF8E542292996700479AEC /* Colors.xcassets */; };
+		23DABD3A2297D2B200CDF79C /* FoodDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DABD382297D2B200CDF79C /* FoodDetailCollectionViewCell.swift */; };
+		23DABD3B2297D2B200CDF79C /* FoodDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23DABD392297D2B200CDF79C /* FoodDetailCollectionViewCell.xib */; };
 		23DB154E22945679008F47E4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB154D22945679008F47E4 /* HomeViewController.swift */; };
 		23DB15522294572B008F47E4 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB15502294572B008F47E4 /* CategoryCollectionViewCell.swift */; };
 		23DB15532294572B008F47E4 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23DB15512294572B008F47E4 /* CategoryCollectionViewCell.xib */; };
@@ -64,6 +66,8 @@
 		2396BA29229553C30056A46C /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		2396BA2A229553C30056A46C /* FoodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		23CF8E542292996700479AEC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		23DABD382297D2B200CDF79C /* FoodDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		23DABD392297D2B200CDF79C /* FoodDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		23DB154D22945679008F47E4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		23DB15502294572B008F47E4 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		23DB15512294572B008F47E4 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				23728F822296A22800050671 /* StrechyHeaderLayout.swift */,
 				23728F7E2296A07E00050671 /* FoodDetailHeaderView.swift */,
 				23728F7F2296A07E00050671 /* FoodDetailHeaderView.xib */,
+				23DABD382297D2B200CDF79C /* FoodDetailCollectionViewCell.swift */,
+				23DABD392297D2B200CDF79C /* FoodDetailCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 			files = (
 				23CF8E552292996700479AEC /* Colors.xcassets in Resources */,
 				23DB15532294572B008F47E4 /* CategoryCollectionViewCell.xib in Resources */,
+				23DABD3B2297D2B200CDF79C /* FoodDetailCollectionViewCell.xib in Resources */,
 				2396BA2C229553C30056A46C /* FoodCollectionViewCell.xib in Resources */,
 				236F83BC229184BD00225696 /* LaunchScreen.storyboard in Resources */,
 				236F83C62291ABFE00225696 /* GoogleService-Info.plist in Resources */,
@@ -446,6 +453,7 @@
 				23DB154E22945679008F47E4 /* HomeViewController.swift in Sources */,
 				2396BA24229533620056A46C /* Food.swift in Sources */,
 				23DB15522294572B008F47E4 /* CategoryCollectionViewCell.swift in Sources */,
+				23DABD3A2297D2B200CDF79C /* FoodDetailCollectionViewCell.swift in Sources */,
 				2396BA2822953BED0056A46C /* FoodViewController.swift in Sources */,
 				2330E305229506A7002D0279 /* DatabaseServices.swift in Sources */,
 				236F83B2229184BC00225696 /* AppDelegate.swift in Sources */,
