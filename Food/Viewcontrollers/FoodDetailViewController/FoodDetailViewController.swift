@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 class FoodDetailViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //MARK:- Constant
@@ -22,9 +21,15 @@ class FoodDetailViewController: UICollectionViewController, UICollectionViewDele
     var food : Food!
     var imageHeader : String!
     var lbHeader : String!
+    var foodId : String!
+    var foodQuantity : Int!
     lazy var button : UIButton = {
         let button = UIButton()
-        button.backgroundColor = .red
+        button.addTarget(self, action: #selector(handleActionAddToCart), for: .touchUpInside)
+        button.backgroundColor = UIColor(named: "#FF8C2B")
+        button.clipsToBounds = true
+        button.setImage(UIImage(named: "icon_cart")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -53,7 +58,6 @@ class FoodDetailViewController: UICollectionViewController, UICollectionViewDele
     
     //MARK:- Method
     fileprivate func setupCollectionView() {
-        navigationItem.title = lbHeader
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(white: 1, alpha: 0)]
         navigationController?.navigationBar.tintColor = .white
@@ -80,7 +84,32 @@ class FoodDetailViewController: UICollectionViewController, UICollectionViewDele
             button.widthAnchor.constraint(equalToConstant: 48),
             ]
         NSLayoutConstraint.activate(buttonConstaint)
-        button.bringSubviewToFront(collectionView)
+       
+    }
+    override func viewWillLayoutSubviews() {
+        button.layer.cornerRadius = button.frame.height / 2
+        button.clipsToBounds = true
+    }
+    @objc fileprivate func handleActionAddToCart(){
+        if foodQuantity == nil {
+            let orderDetail = OrderDetail(context: PersistenceService.context)
+            orderDetail.productName = food.name
+            orderDetail.productId = foodId
+            orderDetail.discount = food.discount
+            orderDetail.price = food.price
+            orderDetail.quantity = "1"
+            
+            PersistenceService.saveContext()
+        }else {
+            let orderDetail = OrderDetail(context: PersistenceService.context)
+            orderDetail.productName = food.name
+            orderDetail.productId = foodId
+            orderDetail.discount = food.discount
+            orderDetail.price = food.price
+            orderDetail.quantity = String(foodQuantity)
+            
+            PersistenceService.saveContext()
+        }
     }
     
     //MARK:- CollectionViewDelegate & CollectionViewDataSource
@@ -90,6 +119,7 @@ class FoodDetailViewController: UICollectionViewController, UICollectionViewDele
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FoodDetailCollectionViewCell
         cell.food = food
+        cell.delegate = self
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -108,7 +138,7 @@ class FoodDetailViewController: UICollectionViewController, UICollectionViewDele
         return CGSize(width: view.frame.width, height: headerHeight)
     }
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let  contentOffsetY = scrollView.contentOffset.y / headerHeight
+        let  contentOffsetY = scrollView.contentOffset.y / (headerHeight - 88)
         if contentOffsetY > 0 {
             let color = UIColor(red: 1, green: 1, blue: 1, alpha: contentOffsetY)
             let titleColor = UIColor(white: 0, alpha: contentOffsetY)
@@ -128,4 +158,9 @@ class FoodDetailViewController: UICollectionViewController, UICollectionViewDele
         }
     }
     
+}
+extension FoodDetailViewController : Delegate {
+    func getQuantityProduct(quantity: Int) {
+        foodQuantity = quantity
+    }
 }

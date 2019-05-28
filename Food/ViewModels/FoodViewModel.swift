@@ -10,9 +10,13 @@ import Foundation
 
 class FoodViewModel {
     var foods = [Food]()
+    var foodIds = [String]()
     
     func fetchFoods(menuId : String,onSuccess : @escaping () -> () , onError : @escaping (String?) -> ()){
-        DatabaseServices.shareInstance.fetchFoods(key: menuId, onSuccess: { [weak self](foods) in
+        DatabaseServices.shareInstance.fetchFoods(key: menuId, foodId: { [weak self](foodIds) in
+            self?.foodIds = foodIds!
+            onSuccess()
+        }, onSuccess: { [weak self](foods) in
             self?.foods = foods!
             onSuccess()
         }) { (error) in
@@ -24,5 +28,8 @@ class FoodViewModel {
     }
     func getCount() -> Int{
         return foods.count
+    }
+    func getFoodId(atIndex : Int) -> String {
+        return foodIds[atIndex]
     }
 }

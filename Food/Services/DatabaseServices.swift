@@ -43,7 +43,7 @@ class DatabaseServices {
             }
         }
     }
-    func fetchCategories(onCompletion : @escaping ([String]?) -> (), onSuccess : @escaping ([Category]?) -> () , onError : @escaping (String?) -> ()){
+    func fetchCategories(menuId : @escaping ([String]?) -> (), onSuccess : @escaping ([Category]?) -> () , onError : @escaping (String?) -> ()){
         //fetch Menus data
         Ref.sharedInstance.databaseCategories.observeSingleEvent(of: .value, with: {(snapshot) in
             guard let object = snapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -55,17 +55,17 @@ class DatabaseServices {
             } catch let error {
                 onError(error.localizedDescription)
             }
-            var keys = [String]()
+            var menuIds = [String]()
             for child in snapshot.children {
                 let key = (child as AnyObject).key as String
-                keys.append(key)
+                menuIds.append(key)
             }
-            onCompletion(keys)
+            menuId(menuIds)
         }) { (error) in
             onError(error.localizedDescription)
         }
     }
-    func fetchFoods(key : String, onSuccess : @escaping ([Food]?) -> () , onError : @escaping (String?) -> ()){
+    func fetchFoods(key : String,foodId : @escaping ([String]?) -> (), onSuccess : @escaping ([Food]?) -> () , onError : @escaping (String?) -> ()){
         //fetch Foods data
         Ref.sharedInstance.getFoodsWithMenuId(equal: key).observeSingleEvent(of: .value, with: {(snapshot) in
             guard let object = snapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -77,6 +77,12 @@ class DatabaseServices {
             } catch let error {
                 onError(error.localizedDescription)
             }
+            var foodIds = [String]()
+            for child in snapshot.children {
+                let key = (child as AnyObject).key as String
+                foodIds.append(key)
+            }
+            foodId(foodIds)
         }) { (error) in
             onError(error.localizedDescription)
         }

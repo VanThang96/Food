@@ -9,6 +9,7 @@
 import UIKit
 
 class FoodDetailHeaderView: UICollectionReusableView {
+    
     //MARK:- IBOulet
     @IBOutlet weak var imvHeader: UIImageView!
     @IBOutlet weak var lbFoodHeader: UILabel!

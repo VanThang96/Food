@@ -13,7 +13,7 @@ class CategoryViewModel {
     var menuIds = [String]()
     
     func fetchCategories(onSuccess : @escaping () -> () , onError : @escaping (String?) -> ()){
-        DatabaseServices.shareInstance.fetchCategories(onCompletion: { [weak self](menuId) in
+        DatabaseServices.shareInstance.fetchCategories(menuId: { [weak self](menuId) in
             self?.menuIds = menuId!
             onSuccess()
             }, onSuccess: { [weak self](categories) in

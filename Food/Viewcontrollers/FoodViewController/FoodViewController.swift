@@ -53,6 +53,7 @@ extension FoodViewController : UICollectionViewDataSource {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let foodDetailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
         foodDetailVC.food = foodViewModel.getFood(atIndex: indexPath.item)
+        foodDetailVC.foodId = foodViewModel.getFoodId(atIndex: indexPath.item)
         self.navigationController?.pushViewController(foodDetailVC, animated: true)
     }
 }

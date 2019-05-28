@@ -21,24 +21,21 @@ class FoodDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var heightConstaintOfCardViewDescription: NSLayoutConstraint!
     
     //MARK:- Variable
+    var delegate : Delegate!
+    var numberCurrent : Int = 1
     var food : Food? {
         didSet {
             lbFoodDetailName.text = food?.name
             heightConstaintOfCardViewDescription.constant = (food?.description.height(withConstrainedWidth: lbFoodDetailDescriptions.bounds.width, font: UIFont.systemFont(ofSize: 17)))! + 32
             lbFoodDetailDescriptions.text = food?.description
-            let attributed = NSMutableAttributedString(attributedString: NSAttributedString(string: "$ ", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)]))
-            attributed.append(NSAttributedString(string: (food?.price)!, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17),NSAttributedString.Key.foregroundColor : UIColor(named: "#FF8C2B")!]))
-            lbFoodDetailPrice.attributedText = attributed
+            lbFoodDetailPrice.text = food?.price
             
         }
     }
-    
     //MARK:- Init
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        print(lbFoodDetailDescriptions.frame.width)
-        print(frame.width)
         btnAddCartItem.layer.cornerRadius = btnAddCartItem.frame.height / 2
         btnAddCartItem.clipsToBounds = true
         btnRemoveCartItem.layer.cornerRadius = btnRemoveCartItem.frame.height / 2
@@ -50,10 +47,16 @@ class FoodDetailCollectionViewCell: UICollectionViewCell {
     
     //MARK:- IBAction
     @IBAction func actionRemoveCartItem(_ sender: UIButton) {
-        print("remove")
+        guard Int(lbCurrentNumberItem.text!)! > 1 else {
+            return
+        }
+        lbCurrentNumberItem.text = String(Int(lbCurrentNumberItem.text!)! - 1)
+        lbFoodDetailPrice.text = String(Int(lbCurrentNumberItem.text!)! * Int((food?.price)!)!)
+        delegate.getQuantityProduct(quantity: Int(lbCurrentNumberItem.text!)!)
     }
     @IBAction func actionAddCartItem(_ sender: Any) {
-        print("add")
+        lbCurrentNumberItem.text = String(Int(lbCurrentNumberItem.text!)! + 1)
+        lbFoodDetailPrice.text = String(Int(lbCurrentNumberItem.text!)! * Int((food?.price)!)!)
+        delegate.getQuantityProduct(quantity: Int(lbCurrentNumberItem.text!)!)
     }
-    
 }
