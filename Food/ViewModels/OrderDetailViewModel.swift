@@ -11,9 +11,8 @@ import CoreData
 
 class OrderDetailViewModel {
     var orderDetail = [OrderDetail]()
-    var totalPrice : Int = 0
     
-    init() {
+    func fetchData() {
         let fetchRequest : NSFetchRequest<OrderDetail> = OrderDetail.fetchRequest()
         
         do {
@@ -31,6 +30,7 @@ class OrderDetailViewModel {
         return orderDetail.count
     }
     func getTotalPrice() -> Int? {
+        var totalPrice : Int = 0
         guard orderDetail.count != 0 else{
             return nil
         }

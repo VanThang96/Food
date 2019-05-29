@@ -31,6 +31,11 @@ class CartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         reloadData()
     }
+    override func viewWillLayoutSubviews() {
+        cardView.layer.cornerRadius = 8
+        cardView.clipsToBounds = true
+        btnPlaceOrder.makeCornerAndGradient(startColor: UIColor(named: "#FF8C2B")!, endColor: UIColor(named: "#FF6322")!)
+    }
     
     //MARK:- Method
     fileprivate func setupCollectionView() {
@@ -38,19 +43,19 @@ class CartViewController: UIViewController {
     }
     fileprivate func firstSetup() {
         orderDetailViewModel = OrderDetailViewModel()
+        orderDetailViewModel.fetchData()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateUIInCart), name: NSNotification.Name("updateCart"), object: nil)
     }
     fileprivate func reloadData(){
-        cartCollectionView.reloadData()
         guard let totalPrice = orderDetailViewModel.getTotalPrice()  else {
             self.showAlert(message: "No Item in Cart")
             return
         }
         lbPrice.text = "$\(totalPrice).00"
     }
-    override func viewWillLayoutSubviews() {
-        cardView.layer.cornerRadius = 8
-        cardView.clipsToBounds = true
-        btnPlaceOrder.makeCornerAndGradient(startColor: UIColor(named: "#FF8C2B")!, endColor: UIColor(named: "#FF6322")!)
+    @objc func handleUpdateUIInCart(){
+        orderDetailViewModel.fetchData()
+        cartCollectionView.reloadData()
     }
 }
 
@@ -78,3 +83,4 @@ extension CartViewController : UICollectionViewDataSource {
         return cell
     }
 }
+

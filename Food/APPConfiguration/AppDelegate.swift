@@ -15,10 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        if let tabItems = tabBarController.tabBar.items {
+            // In this case we want to modify the badge number of the third tab:
+            let tabItem = tabItems[1]
+            tabItem.badgeValue = "2"
+            tabItem.badgeColor = .yellow
+        }
         return true
     }
 
@@ -34,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

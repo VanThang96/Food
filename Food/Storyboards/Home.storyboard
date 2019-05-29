@@ -155,7 +155,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="0KQ-01-qHo">
             <objects>
-                <tabBarController id="R6J-8O-ami" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="R6J-8O-ami" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LVf-JT-vaU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -282,7 +282,7 @@
         <scene sceneID="adY-fb-aw5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GQl-8r-hDq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cart" image="icon_cart" badgeValue="2" selectedImage="icon_cart" id="fxg-jw-Z6Q"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="icon_cart" selectedImage="icon_cart" id="fxg-jw-Z6Q"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Ziz-e8-qQ3">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -301,6 +301,7 @@
         <!--Orders-->
         <scene sceneID="E7y-IN-Fu5">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpy-k3-F1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zkd-Lp-1aN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Orders" image="icon_delivery" badgeValue="2" selectedImage="icon_delivery" id="Rlf-iv-Ysu"/>
                     <toolbarItems/>
@@ -314,7 +315,6 @@
                         <segue destination="0II-VT-OHp" kind="relationship" relationship="rootViewController" id="ML1-Ut-2wH"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cpy-k3-F1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2036" y="281"/>
         </scene>

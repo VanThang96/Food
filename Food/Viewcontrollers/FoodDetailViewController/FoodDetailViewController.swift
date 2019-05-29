@@ -110,6 +110,7 @@ class FoodDetailViewController: UICollectionViewController, UICollectionViewDele
             
             PersistenceService.saveContext()
         }
+        NotificationCenter.default.post(name: NSNotification.Name("updateCart"), object: nil)
     }
     
     //MARK:- CollectionViewDelegate & CollectionViewDataSource
