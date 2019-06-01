@@ -100,6 +100,7 @@ class FoodDetailViewController: UICollectionViewController, UICollectionViewDele
             orderDetail.quantity = "1"
             
             PersistenceService.saveContext()
+            self.displayToastMessage("Add to cart!", 1.5)
         }else {
             let orderDetail = OrderDetail(context: PersistenceService.context)
             orderDetail.productName = food.name
@@ -109,7 +110,9 @@ class FoodDetailViewController: UICollectionViewController, UICollectionViewDele
             orderDetail.quantity = String(foodQuantity)
             
             PersistenceService.saveContext()
+             self.displayToastMessage("Add to cart!", 1.5)
         }
+        
         NotificationCenter.default.post(name: NSNotification.Name("updateCart"), object: nil)
     }
     

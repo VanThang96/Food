@@ -12,14 +12,14 @@ import Firebase
 class DatabaseServices {
     static var shareInstance = DatabaseServices()
     
-    func Login(key : String , password : String ,onSuccess : @escaping () -> (),onError : @escaping (String?) -> ()) {
+    func Login(key : String , password : String ,onSuccess : @escaping (_ user : NSDictionary?) -> (),onError : @escaping (String?) -> ()) {
         //login
         Ref.sharedInstance.databaseSpecificUser(uid: key).observe(.value, with: { (snapshot) in
             // Get password
             let value = snapshot.value as? NSDictionary
             let passwd = value?["password"] as? String ?? ""
             if passwd == password {
-                onSuccess()
+                onSuccess(value)
             }else {
                 onError("Name or Password is not correct !")
             }
@@ -85,6 +85,23 @@ class DatabaseServices {
             foodId(foodIds)
         }) { (error) in
             onError(error.localizedDescription)
+        }
+    }
+    func uploadRequests(data : Request, uid : String, onSuccess : @escaping (String?) -> (), onError : @escaping (String?) -> ()){
+        // upload user object in FirebaseDatabase
+        let request : [String : Any] = [
+            "phone" : data.phone,
+            "name" : data.name,
+            "address" : data.address,
+            "total" : data.total,
+            "foods" : data.foods
+        ]
+        Ref.sharedInstance.uploadRequest(uid: uid).setValue(request) { (error, dataref) in
+            if let error = error {
+                onError("Request order fail: \(error).")
+            } else {
+                onSuccess("Request order successfully!")
+            }
         }
     }
 }

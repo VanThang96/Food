@@ -26,6 +26,9 @@ class OrderDetailViewModel {
     func getOrderDetail(atIndex : Int) -> OrderDetail {
         return orderDetail[atIndex]
     }
+    func getOrderDetails() -> [OrderDetail] {
+        return orderDetail.map({$0})
+    }
     func getCount() -> Int {
         return orderDetail.count
     }
@@ -38,5 +41,27 @@ class OrderDetailViewModel {
             totalPrice += Int(order.price!)! * Int(order.quantity!)!
         }
         return totalPrice
+    }
+    func uploadRequest(uid : String , request : Request , onSuccess : @escaping () -> () , onError : @escaping () -> ()){
+        DatabaseServices.shareInstance.uploadRequests(data: request, uid: uid, onSuccess: { (success) in
+            print(success!)
+            onSuccess()
+        }) { (error) in
+            print(error!)
+            onError()
+        }
+    }
+    func deleteAllOrders(){
+        let context = PersistenceService.context
+    
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "OrderDetail")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch (let error){
+            print ("There was an error: \(error)")
+        }
     }
 }

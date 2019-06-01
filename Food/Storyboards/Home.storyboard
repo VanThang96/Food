@@ -111,6 +111,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="PLACE ORDER"/>
+                                        <connections>
+                                            <action selector="submitOrderAction:" destination="oj4-tb-ysT" eventType="touchUpInside" id="InX-AQ-2Ta"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="#8E8E93"/>
@@ -301,7 +304,6 @@
         <!--Orders-->
         <scene sceneID="E7y-IN-Fu5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cpy-k3-F1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zkd-Lp-1aN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Orders" image="icon_delivery" badgeValue="2" selectedImage="icon_delivery" id="Rlf-iv-Ysu"/>
                     <toolbarItems/>
@@ -315,6 +317,7 @@
                         <segue destination="0II-VT-OHp" kind="relationship" relationship="rootViewController" id="ML1-Ut-2wH"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpy-k3-F1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2036" y="281"/>
         </scene>

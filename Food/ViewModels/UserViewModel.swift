@@ -38,7 +38,9 @@ class UserViewModel {
         return nil
     }
     func Login(onSuccess : @escaping () -> (),onError : @escaping (String?) -> ()) {
-        DatabaseServices.shareInstance.Login(key: self.user.phone, password: self.user.password, onSuccess: {
+        DatabaseServices.shareInstance.Login(key: self.user.phone, password: self.user.password, onSuccess: { (userData) in
+            guard let userData = userData else {return}
+            UserDefaults.standard.set(userData, forKey: "Userdata")
             onSuccess()
         }) { (error) in
             onError(error)

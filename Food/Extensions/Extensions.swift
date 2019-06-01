@@ -100,6 +100,44 @@ extension UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+    func displayToastMessage(_ message : String ,_ duration : Double ) {
+        let estimatedHeightLabel = message.height(withConstrainedWidth:  self.view.frame.width * 2 / 5, font: UIFont.systemFont(ofSize: 16))
+        
+        let toastView = UILabel()
+        toastView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        toastView.textColor = UIColor.white
+        toastView.textAlignment = .center
+        toastView.font = UIFont.systemFont(ofSize: 16)
+        toastView.layer.cornerRadius = 20
+        toastView.layer.masksToBounds = true
+        toastView.text = message
+        toastView.numberOfLines = 0
+        toastView.alpha = 0
+        toastView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(toastView)
+        
+        let horizontalCenter : NSLayoutConstraint = NSLayoutConstraint(item: toastView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
+        let heightCostraint : NSLayoutConstraint = NSLayoutConstraint(item: toastView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: estimatedHeightLabel + 24)
+        let widthConstraint: NSLayoutConstraint = NSLayoutConstraint(item: toastView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: self.view.frame.width * 2 / 5)
+        let bottomConstraint : NSLayoutConstraint = NSLayoutConstraint(item: toastView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: -93)
+        
+        
+        
+        NSLayoutConstraint.activate([horizontalCenter,widthConstraint,heightCostraint,bottomConstraint])
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+            toastView.alpha = 1
+        }, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration, execute: {
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+                toastView.alpha = 0
+            }, completion: { finished in
+                toastView.removeFromSuperview()
+            })
+        })
+    }
 }
 extension UIApplication {
     var statusBarView : UIView? {

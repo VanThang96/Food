@@ -13,6 +13,7 @@
 		2330E305229506A7002D0279 /* DatabaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2330E304229506A7002D0279 /* DatabaseServices.swift */; };
 		233C944A229303BE005F4BA7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C9449229303BE005F4BA7 /* SignInViewController.swift */; };
 		233C944C229303D5005F4BA7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C944B229303D5005F4BA7 /* SignUpViewController.swift */; };
+		2357F10922A28759008E1DF2 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357F10822A28759008E1DF2 /* Request.swift */; };
 		236F83B2229184BC00225696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F83B1229184BC00225696 /* AppDelegate.swift */; };
 		236F83B4229184BC00225696 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F83B3229184BC00225696 /* ViewController.swift */; };
 		236F83B7229184BC00225696 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 236F83B5229184BC00225696 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		2330E304229506A7002D0279 /* DatabaseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServices.swift; sourceTree = "<group>"; };
 		233C9449229303BE005F4BA7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		233C944B229303D5005F4BA7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2357F10822A28759008E1DF2 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		236F83AE229184BC00225696 /* Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Food.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		236F83B1229184BC00225696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		236F83B3229184BC00225696 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				23EAE67D2293B9BE00DFC78B /* UserModel.swift */,
 				23DB1554229459E3008F47E4 /* Category.swift */,
 				2396BA23229533620056A46C /* Food.swift */,
+				2357F10822A28759008E1DF2 /* Request.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				23728F852296AF3800050671 /* FoodDetailViewController.swift in Sources */,
 				23EAE67B2293B69D00DFC78B /* UserViewModel.swift in Sources */,
 				236F83B4229184BC00225696 /* ViewController.swift in Sources */,
+				2357F10922A28759008E1DF2 /* Request.swift in Sources */,
 				23BABD93229AC9C80013B4EC /* OrderDetail+CoreDataClass.swift in Sources */,
 				23DB155722945A7B008F47E4 /* CategoryViewModel.swift in Sources */,
 				2396BA26229534090056A46C /* FoodViewModel.swift in Sources */,
