@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NVM-O8-6xq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HOME-->
+        <scene sceneID="Hlm-QT-JZK">
+            <objects>
+                <viewController id="FWf-9O-FV7" customClass="HomeViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TAM-ae-mq1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7IQ-mg-nw1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w7b-so-jiG">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FWf-9O-FV7" id="1TP-hO-VwP"/>
+                                    <outlet property="delegate" destination="FWf-9O-FV7" id="QO3-uM-uHo"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Iy4-1K-AiS" firstAttribute="bottom" secondItem="7IQ-mg-nw1" secondAttribute="bottom" id="LwH-89-CwP"/>
+                            <constraint firstItem="7IQ-mg-nw1" firstAttribute="top" secondItem="Iy4-1K-AiS" secondAttribute="top" id="dRc-ue-DJR"/>
+                            <constraint firstItem="7IQ-mg-nw1" firstAttribute="leading" secondItem="Iy4-1K-AiS" secondAttribute="leading" id="fkb-p5-lkk"/>
+                            <constraint firstItem="Iy4-1K-AiS" firstAttribute="trailing" secondItem="7IQ-mg-nw1" secondAttribute="trailing" id="m83-1e-hPR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Iy4-1K-AiS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HOME" id="Vwg-cG-Tn5"/>
+                    <connections>
+                        <outlet property="categoryCollectionView" destination="7IQ-mg-nw1" id="UEB-Hj-1WD"/>
+                        <segue destination="F1N-5C-rHt" kind="show" id="ii4-so-fCj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j54-cy-Mbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159" y="270"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="ynx-SU-J4A">
+            <objects>
+                <navigationController storyboardIdentifier="UINavigationController-NVM-O8-6xq" automaticallyAdjustsScrollViewInsets="NO" id="NVM-O8-6xq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="icon_home" selectedImage="icon_home" id="WSi-NL-CTD"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO">
+                        <color key="tintColor" name="#FF6322"/>
+                        <color key="barTintColor" name="#FF8C2B"/>
+                    </simulatedNavigationBarMetrics>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Tg2-sP-HNX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="#FF8C2B"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FWf-9O-FV7" kind="relationship" relationship="rootViewController" id="qSw-AJ-AK3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jwz-uB-lKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-903" y="271"/>
+        </scene>
+        <!--Food View Controller-->
+        <scene sceneID="2fs-s1-1he">
+            <objects>
+                <viewController storyboardIdentifier="FoodViewController" id="F1N-5C-rHt" customClass="FoodViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vIF-Pp-GB5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZEq-0i-KW9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VXc-xU-mLf">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="F1N-5C-rHt" id="GPJ-xY-Qdn"/>
+                                    <outlet property="delegate" destination="F1N-5C-rHt" id="Gbp-MD-TfE"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Jg-ua-LDy" firstAttribute="trailing" secondItem="ZEq-0i-KW9" secondAttribute="trailing" id="Bm8-t2-ye3"/>
+                            <constraint firstItem="ZEq-0i-KW9" firstAttribute="top" secondItem="9Jg-ua-LDy" secondAttribute="top" id="FUA-MP-CYg"/>
+                            <constraint firstItem="ZEq-0i-KW9" firstAttribute="leading" secondItem="9Jg-ua-LDy" secondAttribute="leading" id="GQQ-pM-QxU"/>
+                            <constraint firstItem="9Jg-ua-LDy" firstAttribute="bottom" secondItem="ZEq-0i-KW9" secondAttribute="bottom" id="Ufo-oc-Rgs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Jg-ua-LDy"/>
+                    </view>
+                    <connections>
+                        <outlet property="foodCollectionView" destination="ZEq-0i-KW9" id="AoX-kr-1pg"/>
+                        <segue destination="Bzg-XM-I24" kind="show" id="rWD-1E-RTt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lmQ-Eg-Mxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-903" y="992"/>
+        </scene>
+        <!--Food Detail View Controller-->
+        <scene sceneID="fVv-Hk-xXO">
+            <objects>
+                <collectionViewController storyboardIdentifier="FoodDetailViewController" id="Bzg-XM-I24" customClass="FoodDetailViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="j4I-mh-DcV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SaR-zP-ZF2" customClass="StrechyHeaderLayout" customModule="Food" customModuleProvider="target">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="Bzg-XM-I24" id="P6n-J6-anL"/>
+                            <outlet property="delegate" destination="Bzg-XM-I24" id="Rop-fi-51d"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="kmb-PD-0zT"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P35-SU-Ma3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159" y="992"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_home" width="30" height="30"/>
+        <namedColor name="#FF6322">
+            <color name="ibMissingResourceColor" catalog="#$assets-com.apple.dt.DVTKit" colorSpace="catalog"/>
+        </namedColor>
+        <namedColor name="#FF8C2B">
+            <color red="1" green="0.5490196078431373" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="#FF8C2B">
+            <color red="1" green="0.5490196078431373" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <color key="tintColor" name="#FF6322"/>
+</document>

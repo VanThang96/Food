@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zkd-Lp-1aN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ORDERS-->
+        <scene sceneID="WNK-yX-Yc5">
+            <objects>
+                <viewController id="0II-VT-OHp" customClass="OrderViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HBw-jr-3gW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F7d-ea-blX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iNq-dV-YCN">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0II-VT-OHp" id="xk6-lc-JHh"/>
+                                    <outlet property="delegate" destination="0II-VT-OHp" id="WIY-jg-lrf"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H0o-dN-daB" firstAttribute="trailing" secondItem="F7d-ea-blX" secondAttribute="trailing" id="3Hi-Wa-uIw"/>
+                            <constraint firstItem="H0o-dN-daB" firstAttribute="bottom" secondItem="F7d-ea-blX" secondAttribute="bottom" id="NGd-CA-S0h"/>
+                            <constraint firstItem="F7d-ea-blX" firstAttribute="leading" secondItem="H0o-dN-daB" secondAttribute="leading" id="Z4X-B3-2RZ"/>
+                            <constraint firstItem="F7d-ea-blX" firstAttribute="top" secondItem="H0o-dN-daB" secondAttribute="top" id="fsa-Sf-0SF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H0o-dN-daB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ORDERS" id="HED-Jy-Y7b"/>
+                    <connections>
+                        <outlet property="orderCollectionView" destination="F7d-ea-blX" id="ZfO-rX-5A8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="raG-nr-Nuc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2754" y="281"/>
+        </scene>
+        <!--Orders-->
+        <scene sceneID="E7y-IN-Fu5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zkd-Lp-1aN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Orders" image="icon_delivery" badgeValue="2" selectedImage="icon_delivery" id="Rlf-iv-Ysu"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO">
+                        <color key="tintColor" name="#FF6322"/>
+                        <color key="barTintColor" name="#FF8C2B"/>
+                    </simulatedNavigationBarMetrics>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="u7L-FJ-iIR">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="#FF8C2B"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0II-VT-OHp" kind="relationship" relationship="rootViewController" id="ML1-Ut-2wH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpy-k3-F1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2036" y="281"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_delivery" width="30" height="30"/>
+        <namedColor name="#FF6322">
+            <color name="ibMissingResourceColor" catalog="#$assets-com.apple.dt.DVTKit" colorSpace="catalog"/>
+        </namedColor>
+        <namedColor name="#FF8C2B">
+            <color red="1" green="0.5490196078431373" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="#FF8C2B">
+            <color red="1" green="0.5490196078431373" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <color key="tintColor" name="#FF6322"/>
+</document>

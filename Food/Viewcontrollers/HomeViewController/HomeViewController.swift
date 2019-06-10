@@ -55,9 +55,9 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDelegateF
         return CGSize(width: collectionView.frame.width, height: 200)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let storyboard = UIStoryboard(name: "Category", bundle: nil)
         let foodVC = storyboard.instantiateViewController(withIdentifier: "FoodViewController") as! FoodViewController
-        foodVC.menuId = categoryViewModel.getMenuId(atIndex: indexPath.item)
+        foodVC.menuId = categoryViewModel.getCategory(atIndex: indexPath.item).uuid
         foodVC.navTitle = categoryViewModel.getFoodTitle(atIndex: indexPath.item)
         self.navigationController?.pushViewController(foodVC, animated: true)
     }

@@ -10,15 +10,11 @@ import Foundation
 
 class CategoryViewModel {
     var categories = [Category]()
-    var menuIds = [String]()
-    
+
     func fetchCategories(onSuccess : @escaping () -> () , onError : @escaping (String?) -> ()){
-        DatabaseServices.shareInstance.fetchCategories(menuId: { [weak self](menuId) in
-            self?.menuIds = menuId!
+        DatabaseServices.shareInstance.fetchCategories(onSuccess: { (categories) in
+            self.categories = categories!
             onSuccess()
-            }, onSuccess: { [weak self](categories) in
-                self?.categories = categories!
-                onSuccess()
         }) { (error) in
             onError(error)
         }
@@ -31,9 +27,6 @@ class CategoryViewModel {
     }
     func getCount() -> Int{
         return categories.count
-    }
-    func getMenuId(atIndex : Int) -> String {
-        return menuIds[atIndex]
     }
     func getFoodTitle(atIndex : Int) -> String {
         return categories[atIndex].name

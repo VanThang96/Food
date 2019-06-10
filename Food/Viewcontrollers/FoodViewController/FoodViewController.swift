@@ -50,7 +50,7 @@ extension FoodViewController : UICollectionViewDataSource {
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let storyboard = UIStoryboard(name: "Category", bundle: nil)
         let foodDetailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
         foodDetailVC.food = foodViewModel.getFood(atIndex: indexPath.item)
         foodDetailVC.foodId = foodViewModel.getFoodId(atIndex: indexPath.item)

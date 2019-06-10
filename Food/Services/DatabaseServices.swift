@@ -43,24 +43,26 @@ class DatabaseServices {
             }
         }
     }
-    func fetchCategories(menuId : @escaping ([String]?) -> (), onSuccess : @escaping ([Category]?) -> () , onError : @escaping (String?) -> ()){
+    func fetchCategories(onSuccess : @escaping ([Category]?) -> () , onError : @escaping (String?) -> ()){
         //fetch Menus data
         Ref.sharedInstance.databaseCategories.observeSingleEvent(of: .value, with: {(snapshot) in
             guard let object = snapshot.children.allObjects as? [DataSnapshot] else { return }
             let dict = object.compactMap { $0.value as? [String: Any] }
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: dict, options: [])
-                let categories = try JSONDecoder().decode([Category].self, from: jsonData)
+                var categories = try JSONDecoder().decode([Category].self, from: jsonData)
+                for (index , _) in categories.enumerated() {
+                    if index <= 8 {
+                        categories[index].uuid = "0\(index + 1)"
+                    }else {
+                         categories[index].uuid = "\(index + 1)"
+                    }
+                }
+                print(categories)
                 onSuccess(categories)
             } catch let error {
                 onError(error.localizedDescription)
             }
-            var menuIds = [String]()
-            for child in snapshot.children {
-                let key = (child as AnyObject).key as String
-                menuIds.append(key)
-            }
-            menuId(menuIds)
         }) { (error) in
             onError(error.localizedDescription)
         }
@@ -94,7 +96,8 @@ class DatabaseServices {
             "name" : data.name,
             "address" : data.address,
             "total" : data.total,
-            "foods" : data.foods
+            "foods" : data.foods,
+            "status" : data.status
         ]
         Ref.sharedInstance.uploadRequest(uid: uid).setValue(request) { (error, dataref) in
             if let error = error {

@@ -12,6 +12,7 @@ struct Request {
     var phone : String
     var name : String
     var address : String
+    var status : String
     var total : String
     var foods : String
     
@@ -21,5 +22,6 @@ struct Request {
         self.address = address
         self.total = total
         self.foods = foods
+        self.status = "0"
     }
 }
