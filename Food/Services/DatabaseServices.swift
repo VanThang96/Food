@@ -37,7 +37,7 @@ class DatabaseServices {
         //Register
         Ref.sharedInstance.databaseSpecificUser(uid: key).setValue(user) { (error, databaseReference) in
             if let error = error {
-                onError("Register failed: \(error).")
+                onError("Register fail: \(error).")
             } else {
                 onSucess("Register successfully!")
             }
